@@ -1,6 +1,9 @@
+import { motion } from 'motion/react';
 import {
   Mail,
   Linkedin,
+  MapPin,
+  Calendar,
   ExternalLink,
   GraduationCap,
   Code,
@@ -8,7 +11,6 @@ import {
   Wrench,
   FolderOpen
 } from 'lucide-react';
-import { motion } from 'motion/react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
@@ -49,6 +51,7 @@ export function ResumePage() {
     {
       title: 'Data Engineering Intern',
       company: 'UC Berkeley, Intellectual Property and Industry Research Alliances',
+      location: 'Berkeley, CA',
       period: 'January 2025 – Present',
       achievements: [
         'Designed a standardized data collection workflow to extract, clean, and validate startup founder data, producing a structured dataset of 400+ UC Berkeley spin-offs used for commercialization analysis.',
@@ -58,6 +61,7 @@ export function ResumePage() {
     {
       title: 'Product Development Intern',
       company: 'Empower Sleep',
+      location: 'Remote',
       period: 'January 2025 – May 2025',
       achievements: [
         'Built a machine learning–assisted sleep risk assessment system that generated patient risk profiles, reducing clinical intake time by 25% by accelerating identification of high-risk cases.',
@@ -67,6 +71,7 @@ export function ResumePage() {
     {
       title: 'Medical Robotics Intern',
       company: 'Flux Robotics',
+      location: 'San Francisco, CA',
       period: 'May 2024 – September 2024',
       achievements: [
         'Developed a calibration framework for an AI-powered surgical robotic system operating under constrained operating-room conditions to align patient anatomy with robotic workflows during surgery.',
@@ -76,6 +81,7 @@ export function ResumePage() {
     {
       title: 'Data Science Intern',
       company: 'Augene Beauty',
+      location: 'Los Angeles, CA',
       period: 'May 2024 – August 2024',
       achievements: [
         'Developed a microbiome modeling pipeline using QIIME2 and Python to transform raw sequencing data into engineered taxa-abundance features and trained ML classifiers to support personalized skincare recommendations.',
@@ -85,6 +91,7 @@ export function ResumePage() {
     {
       title: 'Research Assistant',
       company: 'Bishop Lab',
+      location: 'Berkeley, CA',
       period: 'February 2024 – September 2024',
       achievements: [
         'Processed, validated, and derived signal metrics from wearable EEG sleep recordings across 100+ participants, producing analysis-ready datasets for a multi-site computational psychiatry study with Trinity College Dublin.'
@@ -151,7 +158,7 @@ export function ResumePage() {
               <h2 className="text-2xl font-serif">Education</h2>
             </div>
             <h3 className="font-medium font-serif">University of California, Berkeley</h3>
-            <p className="text-primary font-serif">B.A. in Data Science, Cognitive Science, Minor in Global Public Health</p>
+            <p className="text-primary font-serif">B.A. in Data Science, Cognitive Science</p>
             <Separator className="my-4" />
             <div className="flex flex-wrap gap-2">
               {coursework.map((c, i) => (
@@ -196,6 +203,10 @@ export function ResumePage() {
                     <div>
                       <h3 className="font-medium text-primary font-serif">{exp.title}</h3>
                       <p className="font-serif">{exp.company}</p>
+                    </div>
+                    <div className="text-sm text-muted-foreground font-serif">
+                      <div>{exp.location}</div>
+                      <div>{exp.period}</div>
                     </div>
                   </div>
                   <ul className="mt-3 ml-4 space-y-2">
