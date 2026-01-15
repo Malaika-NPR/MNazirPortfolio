@@ -25,8 +25,6 @@ export function ResumePage() {
       'Tableau',
       'Salesforce',
       'Visual Studio Code',
-      'HTML',
-      'CSS',
       'PyTorch',
       'TensorFlow',
       'SciPy',
@@ -139,148 +137,203 @@ export function ResumePage() {
               transition={{ duration: 0.6 }}
               className="text-center space-y-6"
             >
-              <h1 className="text-4xl lg:text-5xl text-primary font-serif">
-                Malaika Nazir
-              </h1>
+              <h1 className="text-4xl lg:text-5xl text-primary font-serif">Malaika Nazir</h1>
 
               <div className="flex flex-wrap justify-center gap-6 text-muted-foreground font-serif">
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <a href="mailto:malaikanazir840@gmail.com">
+                  <a href="mailto:malaikanazir840@gmail.com" className="hover:text-primary transition-colors">
                     malaikanazir840@gmail.com
                   </a>
                 </div>
-                <span>916-840-4942</span>
+                <div className="flex items-center gap-2">
+                  <span>916-840-4942</span>
+                </div>
                 <div className="flex items-center gap-2">
                   <Linkedin className="w-4 h-4" />
                   <a
                     href="https://www.linkedin.com/in/malaikanazir"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1"
+                    className="hover:text-primary transition-colors flex items-center gap-1"
                   >
-                    LinkedIn <ExternalLink className="w-3 h-3" />
+                    LinkedIn
+                    <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
               </div>
             </motion.div>
 
             {/* Education */}
-            <Card className="p-6 bg-card/90 backdrop-blur-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <GraduationCap className="w-5 h-5 text-blue-500" />
-                <h2 className="text-2xl font-serif">Education</h2>
-              </div>
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="p-6 bg-card/90 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-blue-500/10 rounded-lg">
+                    <GraduationCap className="w-5 h-5 text-blue-500" />
+                  </div>
+                  <h2 className="text-2xl font-serif">Education</h2>
+                </div>
 
-              <h3 className="text-lg font-medium font-serif">
-                University of California, Berkeley
-              </h3>
-              <p className="text-primary font-serif">
-                B.A. in Data Science, Cognitive Science, Minor in Global Public Health
-              </p>
+                <h3 className="text-lg font-medium font-serif">University of California, Berkeley</h3>
+                <p className="text-primary font-serif mt-1">
+                  B.A. in Data Science, Cognitive Science, Minor in Global Public Health
+                </p>
 
-              <Separator className="my-4" />
+                <Separator className="my-4" />
 
-              <div className="flex flex-wrap gap-2">
-                {coursework.map((course, i) => (
-                  <Badge key={i} variant="secondary" className="text-xs font-serif">
-                    {course}
-                  </Badge>
-                ))}
-              </div>
-            </Card>
+                <div className="flex flex-wrap gap-2">
+                  {coursework.map((course, i) => (
+                    <Badge key={i} variant="secondary" className="text-xs font-serif">
+                      {course}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
+            </motion.section>
 
             {/* Skills */}
-            <Card className="p-6 bg-card/90 backdrop-blur-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <Code className="w-5 h-5 text-green-500" />
-                <h2 className="text-2xl font-serif">Technical Skills</h2>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Database className="w-4 h-4 text-blue-500" />
-                    <h3 className="font-medium font-serif">Languages</h3>
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="p-6 bg-card/90 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-green-500/10 rounded-lg">
+                    <Code className="w-5 h-5 text-green-500" />
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.languages.map((l, i) => (
-                      <Badge key={i}>{l}</Badge>
-                    ))}
-                  </div>
+                  <h2 className="text-2xl font-serif">Technical Skills</h2>
                 </div>
 
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Wrench className="w-4 h-4 text-purple-500" />
-                    <h3 className="font-medium font-serif">Tools & Libraries</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Database className="w-4 h-4 text-blue-500" />
+                      <h3 className="font-medium font-serif">Languages:</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.languages.map((lang, i) => (
+                        <Badge
+                          key={i}
+                          className="bg-blue-500/10 text-blue-700 hover:bg-blue-500/20 font-serif"
+                        >
+                          {lang}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.tools.map((t, i) => (
-                      <Badge key={i}>{t}</Badge>
-                    ))}
+
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Wrench className="w-4 h-4 text-purple-500" />
+                      <h3 className="font-medium font-serif">Tools & Libraries:</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.tools.map((tool, i) => (
+                        <Badge
+                          key={i}
+                          className="bg-purple-500/10 text-purple-700 hover:bg-purple-500/20 font-serif"
+                        >
+                          {tool}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.section>
 
             {/* Experience */}
-            <Card className="p-6 bg-card/90 backdrop-blur-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <Calendar className="w-5 h-5 text-orange-500" />
-                <h2 className="text-2xl font-serif">Professional Experience</h2>
-              </div>
-
-              <div className="space-y-8">
-                {experiences.map((exp, i) => (
-                  <div key={i}>
-                    {i > 0 && <Separator className="mb-8" />}
-
-                    <div className="flex justify-between flex-wrap gap-2">
-                      <div>
-                        <h3 className="text-lg font-medium text-primary font-serif">
-                          {exp.title}
-                        </h3>
-                        <p className="font-medium font-serif">{exp.company}</p>
-                      </div>
-
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground font-serif">
-                        <Calendar className="w-3 h-3" />
-                        <span>{exp.period}</span>
-                      </div>
-                    </div>
-
-                    <ul className="mt-3 ml-4 space-y-2">
-                      {exp.achievements.map((a, j) => (
-                        <li key={j} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
-                          <span className="text-sm font-serif">{a}</span>
-                        </li>
-                      ))}
-                    </ul>
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Card className="p-6 bg-card/90 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-orange-500/10 rounded-lg">
+                    <Calendar className="w-5 h-5 text-orange-500" />
                   </div>
-                ))}
-              </div>
-            </Card>
+                  <h2 className="text-2xl font-serif">Professional Experience</h2>
+                </div>
+
+                <div className="space-y-8">
+                  {experiences.map((exp, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                    >
+                      {i > 0 && <Separator className="mb-8" />}
+
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-2">
+                        <div>
+                          <h3 className="text-lg font-medium text-primary font-serif">
+                            {exp.title}
+                          </h3>
+                          <p className="font-medium font-serif mt-0.5">
+                            {exp.company}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm font-serif">
+                          <Calendar className="w-3 h-3" />
+                          <span>{exp.period}</span>
+                        </div>
+                      </div>
+
+                      <ul className="space-y-2 ml-4 mt-3">
+                        {exp.achievements.map((a, j) => (
+                          <li key={j} className="flex items-start gap-3">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
+                            <span className="text-sm leading-relaxed font-serif">
+                              {a}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  ))}
+                </div>
+              </Card>
+            </motion.section>
 
             {/* Projects */}
-            <Card className="p-6 bg-card/90 backdrop-blur-sm">
-              <div className="flex items-center gap-3 mb-6">
-                <FolderOpen className="w-5 h-5 text-red-500" />
-                <h2 className="text-2xl font-serif">Projects</h2>
-              </div>
-
-              {projects.map((p, i) => (
-                <div key={i} className="space-y-2">
-                  <h3 className="font-medium text-primary font-serif">
-                    {p.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground font-serif">
-                    {p.description}
-                  </p>
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Card className="p-6 bg-card/90 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-red-500/10 rounded-lg">
+                    <FolderOpen className="w-5 h-5 text-red-500" />
+                  </div>
+                  <h2 className="text-2xl font-serif">Projects</h2>
                 </div>
-              ))}
-            </Card>
+
+                <div className="space-y-4">
+                  {projects.map((p, i) => (
+                    <div key={i}>
+                      <h3 className="font-medium text-primary font-serif">{p.title}</h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground font-serif mt-2">
+                        {p.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </motion.section>
           </div>
         </div>
       </div>
